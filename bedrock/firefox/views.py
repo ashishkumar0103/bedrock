@@ -314,9 +314,9 @@ def show_56_whatsnew(version, oldversion):
     v56 = Version('56.0')
 
     if oldversion:
-        return version >= v56 and oldversion < v56
+        return version >= v56 and version < Version('57.0') and oldversion < v56
     else:
-        return version >= v56
+        return version >= v56 and version < Version('57.0')
 
 
 def show_57_whatsnew(version):
@@ -325,7 +325,7 @@ def show_57_whatsnew(version):
     except ValueError:
         return False
 
-    return version >= Version('57.0')
+    return version >= Version('57.0') and version < Version('58.0')
 
 
 def show_57_dev_whatsnew(version):
